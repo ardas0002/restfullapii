@@ -38,4 +38,29 @@ public class UserDetailsRequest {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    public boolean isValid() {
+    	return !(this.getFirstName().isEmpty() || this.getLastName().isEmpty() || this.getEmail().isEmpty() || this.getPassword().isEmpty());
+    }
+    
+    @Override
+    public String toString() {
+        return "UserDetailsRequest{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+    
+    public static void main(String[] args) {
+    	
+    	UserDetailsRequest user = new UserDetailsRequest();
+    	user.setFirstName("");
+    	user.setLastName("Korniszon");
+    	user.setEmail("macko@macko");
+    	user.setPassword("IOJIJIUJ");
+    	
+    	System.out.println(user.isValid());
+    }
 }
